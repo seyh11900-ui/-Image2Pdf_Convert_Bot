@@ -21,15 +21,9 @@ TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    context.user_data["images"] = []
-    welcome_text = (
-        "👋 **Welcome to Image to PDF Bot!**\n\n"
-        "Send me photos, and I will combine them into a single PDF file.\n\n"
-        "**Available Commands:**\n"
-        "• /start - Reset bot & show welcome\n"
-        "• /help - Instructions & details\n"
-        "• /status - Check uploaded photo count\n"
-        "• /clear - Delete all queued photos"
+    await update.message.reply_text(
+        "👋 **Image to PDF Converter**\n\n"
+        "Send me your photos, and I will combine them into a single PDF document!"
     )
     await update.message.reply_text(welcome_text, parse_mode="Markdown")
 
